@@ -25,7 +25,7 @@ jobs:
           LOCAL=$(python3 -c "import json; print(json.load(open('openbook/publisher.json'))['openbookVersion'])")
           curl -fsSL -o /tmp/common.schema.json \\
             https://raw.githubusercontent.com/openbook-data-standards/openbook/main/schema/common.schema.json
-          if ! grep -q "$LOCAL" /tmp/common.schema.json; then
+          if ! grep -qF -- "$LOCAL" /tmp/common.schema.json; then
             echo "openbookVersion $LOCAL not found in latest spec common.schema.json"
             exit 1
           fi
