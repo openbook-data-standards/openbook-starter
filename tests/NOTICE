@@ -1,0 +1,5 @@
+OpenBook JSON Schemas in tests/schema/ are copied from
+https://github.com/openbook-data-standards/openbook
+(0.3.0-draft) and remain CC BY 4.0. See that repository LICENSE.
+They are test fixtures so `openbook start` output can be checked
+offline. They are not a product copy of the spec.

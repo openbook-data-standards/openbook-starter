@@ -1,0 +1,11 @@
+{
+  "lastUpdated": "2026-09-19T12:00:00Z",
+  "ttl": 60,
+  "feeds": [
+    {
+      "name": "snapshot",
+      "kind": "snapshot",
+      "url": "https://example.invalid/acme-feeds/snapshot.json"
+    }
+  ]
+}

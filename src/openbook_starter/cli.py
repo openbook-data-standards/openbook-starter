@@ -129,19 +129,22 @@ def start(args) -> int:
 
 
 def main(argv=None) -> int:
-    p = argparse.ArgumentParser(prog="openbook")
+    p = argparse.ArgumentParser(
+        prog="openbook",
+        description="Write OpenBook publisher documents into a repo.",
+    )
     sub = p.add_subparsers(dest="cmd", required=True)
     sp = sub.add_parser("start", help="write openbook/ documents into a repo")
-    sp.add_argument("--id", default="")
-    sp.add_argument("--name", default="")
-    sp.add_argument("--currency", default="")
-    sp.add_argument("--base-url", default="", dest="base_url")
-    sp.add_argument("--source-id", default="", dest="source_id")
-    sp.add_argument("--source-name", default="", dest="source_name")
+    sp.add_argument("--id", default="", help="publisher id (lowercase, dash-separated)")
+    sp.add_argument("--name", default="", help="display name (default: --id)")
+    sp.add_argument("--currency", default="", help="ISO 4217 alpha (default: GBP)")
+    sp.add_argument("--base-url", default="", dest="base_url", help="public base URL")
+    sp.add_argument("--source-id", default="", dest="source_id", help="default: {id}-book")
+    sp.add_argument("--source-name", default="", dest="source_name", help="default: --name")
     sp.add_argument("--dir", default=".", help="repo root (default cwd)")
-    sp.add_argument("--no-input", action="store_true")
-    sp.add_argument("--force", action="store_true")
-    sp.add_argument("--no-workflow", dest="workflow", action="store_false")
+    sp.add_argument("--no-input", action="store_true", help="do not prompt; exit if required flags missing")
+    sp.add_argument("--force", action="store_true", help="overwrite an existing openbook/ directory")
+    sp.add_argument("--no-workflow", dest="workflow", action="store_false", help="do not write .github/workflows/openbook-update.yml")
     sp.set_defaults(workflow=True)
     args = p.parse_args(argv)
     if args.cmd == "start":

@@ -13,10 +13,13 @@ dependencies = []
 
 [project.optional-dependencies]
 translations = ["openbook-translate"]
-dev = ["pytest"]
+dev = ["pytest", "jsonschema>=4.18", "referencing"]
 
 [project.scripts]
 openbook = "openbook_starter.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+openbook_starter = ["py.typed"]
