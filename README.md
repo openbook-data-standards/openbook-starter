@@ -13,7 +13,7 @@ This repo is the CLI and a copyable example (`openbook/`). `start` writes docume
 The repo is public. Until it is on PyPI, install from Git:
 
 ```bash
-pip install 'openbook-starter @ git+https://github.com/openbook-data-standards/openbook-starter.git'
+pip install 'openbook-starter @ git+https://github.com/openbook-data-standards/openbook-starter@v0.1.0'
 ```
 
 From a checkout:
@@ -26,7 +26,7 @@ uv pip install -e ".[dev]"
 Optional translations kernel (separate repo, also installed from Git):
 
 ```bash
-pip install 'openbook-starter[translations] @ git+https://github.com/openbook-data-standards/openbook-starter.git'
+pip install 'openbook-starter[translations] @ git+https://github.com/openbook-data-standards/openbook-starter@v0.1.0'
 ```
 
 The `translations` extra pulls `openbook-translate` from its tagged Git release
